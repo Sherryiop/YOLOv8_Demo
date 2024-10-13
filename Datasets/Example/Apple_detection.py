@@ -25,9 +25,9 @@ def box_center(left, top, right, bottom):
 #===========================================================#
 # 模型和影片路徑設定
 #===========================================================#
-model_path = r'C:\Users\Hi1pp\CTCI\runs\detect\train7\weights\best.pt' # YOLO model path
-source = r'C:\Users\Hi1pp\CTCI\Datasets\Example\images\train\829bade633586743bceaeaf5e249778e.jpg' # input path
-output_path = r'C:\Users\Hi1pp\CTCI\Datasets\Example\output_file_1.jpg' # picture output path
+model_path = r'path\to\runs\detect\train\weights\best.pt' # YOLO model path
+source = r'path\to\Datasets\Example\images\train\apple.jpg' # input path
+output_path = r'path\to\Datasets\Example\output.jpg' # picture output path
 model = YOLO(model_path)
 #===========================================================#
 
