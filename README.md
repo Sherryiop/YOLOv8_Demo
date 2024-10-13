@@ -3,6 +3,8 @@
 
   
 若要了解更多YOLOv8相關資料，請參考: [YOLOv8 Github](https://github.com/ultralytics/ultralytics?tab=readme-ov-file)  |  [YOLOv8 語法](https://docs.ultralytics.com/)
+
+
 ## 下載專案
 
 #### 方法一
@@ -15,57 +17,77 @@ git clone https://github.com/Sherryiop/YOLOv8_Demo.git --depth 1
 直接點Download.zip下載
 
 ## 貼標
-### 環境建立
-此步驟為建立物件貼標的環境
+
+<details open>
+<summary>環境建立</summary>  
+  
+<br>此步驟為建立物件貼標的環境
 在Terminal將路徑指定到 YOLOv8_Demo\labellmg後輸入以下指令，安裝所需套件
   
 ```bash
 pip install -r requirement.txt
 ```
-### 確認物件名稱
-請至predefined_classes.txt確認物件名稱及數量，文件路徑為labelImg\data\predefined_classes.txt
+</details>
+
+<details open>
+<summary>確認物件名稱</summary>  
+  
+<br>請至predefined_classes.txt確認物件名稱及數量，文件路徑為labelImg\data\predefined_classes.txt
 
 本次檢測的物件只有一個，所以predefined_classes.txt內容只有一行
 ```bash
 Apple
 ```
-### 貼標程式介面與使用方法
-執行 YOLOv8_Demo\labellmg\labelImg.py，其介面與使用方法如下圖
-![圖片1](https://github.com/user-attachments/assets/323e808e-fcc2-4179-8ee4-8da12ac2c65a)
+</details>
 
+<details open>
+<summary>貼標程式介面與使用方法</summary> 
+  
+<br>執行 YOLOv8_Demo\labellmg\labelImg.py，其介面與使用方法如下圖
+![圖片1](https://github.com/user-attachments/assets/323e808e-fcc2-4179-8ee4-8da12ac2c65a)
+</details>
 
 ## xml檔 -> txt檔
-### 環境建立
-由於labellmg輸出的程式為xml檔，但YOLO訓練只讀txt檔，需要進行檔案轉錄
+<details open>
+<summary>環境建立</summary> 
+<br>由於labellmg輸出的程式為xml檔，但YOLO訓練只讀txt檔，需要進行檔案轉錄
 
 路徑指定到YOLOv8_Demo\XmlToTxt後，安裝轉錄檔案所需要的環境，指令如下
 ```bash
 pip install -r requirements.txt
 ```
 原始來源:[XmlToTxt Github](https://github.com/isabek/XmlToTxt/tree/master)
+</details>
 
-### 轉錄檔案
-把要轉錄的xml檔案放置XmlToTxt\xml，如果沒有該資料夾，需要自己建立  
+<details open>
+<summary>轉錄檔案</summary>
+
+<br>把要轉錄的xml檔案放置XmlToTxt\xml，如果沒有該資料夾，需要自己建立  
 
 確認XmlToTxt\classes.txt 檔案內容跟YOLOv8_Demo\labelImg\data\predefined_classes.txt 一樣後，在Terminal指定到XmlToTxt後輸入以下指令，以轉錄程式
 ```bash
 python xmltotxt.py -xml xml -out out
 ```
 轉錄後的txt檔會在XmlToTxt\out
+</details>
 
 ## YOLO模型訓練
-### 環境建立
-$${\color{red}若未安裝cuda，請先安裝後，再安裝YOLOv8。}$$  
+
+<details open>
+<summary>環境建立</summary>
+<br>$${\color{red}若未安裝cuda，請先安裝後，再安裝YOLOv8。}$$  
 **環境要求:Python>=3.8**
 
 請確認python>=3.8後，安裝YOLOv8套件
 ```bash
 pip install ultralytics
 ```
+</details>
 
+<details open>
+<summary>配置yaml檔(訓練檔)</summary>
 
-### 配置yaml檔(訓練檔)
-yaml檔為YOLO的訓練檔案，其格式如下
+<br>yaml檔為YOLO的訓練檔案，其格式如下
 
 ```bash
 path:  path\to\Datasets\Example               # dataset root dir 
@@ -81,9 +103,13 @@ names:
 ```
 因為此案例只有檢測一種物件，故nc為1
 names下方填寫物件名稱，需與檔案labelImg\data\predefined_classes.txt內容順序一致
+</details>
 
-### 模型訓練
-**預訓練模型下載**:[YOLOv8n.pt](https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8n.pt)
+<details open>
+<summary>模型訓練</summary>
+<br>
+  
+  **預訓練模型下載**:[YOLOv8n.pt](https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8n.pt)
 
 **Dataset 格式**  
 
@@ -113,7 +139,7 @@ yolo detect train data=yaml路徑 model=yolov8n.pt epochs=250 imgsz=640 patience
 
 訓練後的模型路徑會顯示於下於紅色框位置
 ![圖片2](https://github.com/user-attachments/assets/cf95f192-abee-4b8a-ba7a-cb58e53c026c)
-
+</details>
 
 ## YOLO模型測試
 ### 修改Apple_detection.py
