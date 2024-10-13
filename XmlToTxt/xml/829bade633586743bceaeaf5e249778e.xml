@@ -1,0 +1,26 @@
+<annotation>
+	<folder>train</folder>
+	<filename>829bade633586743bceaeaf5e249778e.jpg</filename>
+	<path>C:\Users\Hi1pp\CTCI\Datasets\Example\images\train\829bade633586743bceaeaf5e249778e.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>236</width>
+		<height>236</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>Apple</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>84</xmin>
+			<ymin>34</ymin>
+			<xmax>171</xmax>
+			<ymax>129</ymax>
+		</bndbox>
+	</object>
+</annotation>
